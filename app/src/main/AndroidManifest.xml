@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ScheduleMessage">
-        <activity android:name=".sendMessage"></activity>
+        <activity android:name=".UpdateMessage"></activity>
+        <activity android:name=".sendMessage" />
         <activity android:name=".AddMessage" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -27,8 +28,7 @@
         <receiver
             android:name=".ExampleJobService"
             android:enabled="true"
-            android:exported="true">
-        </receiver>
+            android:exported="true"></receiver>
     </application>
 
 </manifest>

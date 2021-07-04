@@ -1,5 +1,7 @@
 package com.abdulrehman.schedulemessage;
 
+import androidx.annotation.Nullable;
+
 public class Message {
     private String messageID, message, receiver;
     private String day, month, year;
@@ -61,4 +63,29 @@ public class Message {
     public String getIsSent() { return isSent; }
 
     public void setIsSent(String isSent) { this.isSent = isSent; }
+
+    @Override
+    public String toString() {
+        return "Message{" +
+                "messageID='" + messageID + '\'' +
+                ", message='" + message + '\'' +
+                ", receiver='" + receiver + '\'' +
+                ", day='" + day + '\'' +
+                ", month='" + month + '\'' +
+                ", year='" + year + '\'' +
+                ", hour='" + hour + '\'' +
+                ", minute='" + minute + '\'' +
+                ", isSent='" + isSent + '\'' +
+                '}';
+    }
+
+    public void copyMessage(Message obj){
+        this.setMessage(obj.getMessage());
+        this.setReceiver(obj.getReceiver());
+        this.setYear(obj.getYear());
+        this.setMonth(obj.getMonth());
+        this.setDay(obj.getDay());
+        this.setHour(obj.getHour());
+        this.setMinute(obj.getMinute());
+    }
 }

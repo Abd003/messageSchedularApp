@@ -8,6 +8,8 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
@@ -17,6 +19,8 @@ import android.os.Vibrator;
 import android.telephony.SmsManager;
 import android.util.Log;
 import android.widget.Toast;
+
+import java.io.File;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -56,6 +60,7 @@ public class sendMessage extends AppCompatActivity {
         }
         finish();
     }
+
     public boolean checkPermission(String permission){
         int check = ContextCompat.checkSelfPermission(this, permission);
         return (check== PackageManager.PERMISSION_GRANTED);

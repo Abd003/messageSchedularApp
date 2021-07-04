@@ -1,6 +1,7 @@
 package com.abdulrehman.schedulemessage;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -73,6 +74,28 @@ public class MyRvAdapter extends RecyclerView.Adapter<MyRvAdapter.MyViewHolder> 
                 ls.remove(position);
                 notifyDataSetChanged();
                 return false;
+            }
+        });
+        holder.linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(c, UpdateMessage.class);
+                intent.putExtra("messageId", ls.get(position).getMessageID());
+                intent.putExtra("message", ls.get(position).getMessage());
+                intent.putExtra("receiver", ls.get(position).getReceiver());
+                intent.putExtra("day", ls.get(position).getDay());
+                intent.putExtra("month", ls.get(position).getMonth());
+                intent.putExtra("year", ls.get(position).getYear());
+                intent.putExtra("hour", ls.get(position).getHour());
+                intent.putExtra("minute", ls.get(position).getMinute());
+                intent.putExtra("isSent", ls.get(position).getIsSent());
+                //MyDBHelper myDBHelper=new MyDBHelper(c);
+                //SQLiteDatabase database=myDBHelper.getReadableDatabase();
+                //database.delete(MyMessageContract.Messages.TABLENAME,MyMessageContract.Messages._ID+"= ?",new String[]{ls.get(position).getMessageID()});
+                //database.close();
+                //myDBHelper.close();
+                c.startActivity(intent);
+                notifyDataSetChanged();
             }
         });
     }
